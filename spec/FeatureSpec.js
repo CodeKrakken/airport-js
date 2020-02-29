@@ -6,10 +6,10 @@ describe('Feature Test:', function(){
 
   beforeEach(function(){
     plane = new Plane();
-    airport = new airport();
+    airport = new Airport();
   });
 
-  instanceof('planes can be instructed to land at an airport', function(){
+  it('planes can be instructed to land at an airport', function(){
     plane.land(airport);
     expect(airport.planes()).toContain(plane);
   });
