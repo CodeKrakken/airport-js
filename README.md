@@ -1,1 +1,3 @@
-# The Airport Challenge, in JavaScript
+# Airport Challenge
+
+#### JavaScript version
