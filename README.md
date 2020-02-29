@@ -1,1 +1,1 @@
-# thermostat-2
+# The Airport Challenge, in JavaScript
