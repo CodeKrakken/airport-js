@@ -23,7 +23,7 @@ describe('Airport', function(){
   it('can clear a plane for takeoff', function(){
     airport.clearForLanding(plane);
     airport.clearForTakeOff(plane);
-    expect(airport.planes()).toEqual([]);
+    expect(airport.planes()).not.toContain(plane);
   });
 
   it('removes only correct plane from hangar upon takeoff', function(){
