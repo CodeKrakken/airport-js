@@ -17,12 +17,12 @@ describe('Plane', function(){
   });
 
   it('can be instructed to take off', function(){
-    plane.takeOff();
+    plane.takeOff(airport);
     expect(airport.clearForTakeOff).toHaveBeenCalledWith(plane);
   });
 
   it('confirms departure', function(){
-    expect(plane.takeOff()).toEqual("Departure Successful.");
+    expect(plane.takeOff(airport)).toEqual("Departure Successful.");
   });
 
   it('will only land at an airport', function(){
@@ -34,7 +34,7 @@ describe('Plane', function(){
   });
 
   it('will not tke off when already in flight', function(){
-    plane.takeOff();
-    expect(function(){plane.takeOff();}).toThrowError("Cannot take off - already in flight");
+    plane.takeOff(airport);
+    expect(function(){plane.takeOff(airport);}).toThrowError("Cannot take off - already in flight");
   });
 });

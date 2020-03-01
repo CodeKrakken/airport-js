@@ -35,5 +35,5 @@ Airport.prototype.alterCapacity = function(newCapacity){
 };
 
 Airport.prototype.isAirport = function(){
-  return false
+  return true
 };

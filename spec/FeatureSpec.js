@@ -4,11 +4,13 @@ describe('Feature Test:', function(){
   var plane;
   var planeTwo;
   var airport;
+  var airportTwo;
 
   beforeEach(function(){
     plane = new Plane();
     planeTwo = new Plane(); 
     airport = new Airport();
+    airportTwo = new Airport();
   });
 
   describe('under clement conditions', function(){
@@ -22,18 +24,22 @@ describe('Feature Test:', function(){
     });
 
     it('planes can be instructed to take off', function(){
-      plane.takeOff();
+      plane.takeOff(airport);
       expect(airport.planes()).not.toContain(plane);
     });
 
     it('plane confirms departure', function(){
-      expect(plane.takeOff()).toEqual("Departure Successful.")
+      expect(plane.takeOff(airport)).toEqual("Departure Successful.")
     });
 
     it('planes cannot land if airport is full', function(){
       airport.alterCapacity(1);
       console.log(airport.planes());
       expect(function(){planeTwo.land(airport);}).toThrowError('Cannot land - airport is full');
+    });
+
+    it('planes cannot take off if not at specified airport', function(){
+      expect(function(){plane.takeOff(airportTwo);}).toThrowError('Cannot take off - not at that airport');
     });
   });
 
@@ -43,7 +49,7 @@ describe('Feature Test:', function(){
       spyOn(Math, 'random').and.returnValue(0);
       plane.land(airport)
       spyOn(airport._weather, 'isStormy').and.returnValue(true);
-      expect(function(){plane.takeOff();}).toThrowError('Cannot take off during storm');
+      expect(function(){plane.takeOff(airport);}).toThrowError('Cannot take off during storm');
       expect(airport.planes()).toContain(plane);
     });
   

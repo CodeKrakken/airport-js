@@ -9,8 +9,9 @@ Plane.prototype.land = function(airport) {
   this._location = airport;
 };
 
-Plane.prototype.takeOff = function() {
+Plane.prototype.takeOff = function(airport) {
   if (this._location === "Not in Airport") throw new Error('Cannot take off - already in flight');
+  if (this._location !== airport) throw new Error('Cannot take off - not at that airport');
   this._location.clearForTakeOff(this);
   this._location = "Not in Airport";
   return "Departure Successful.";
