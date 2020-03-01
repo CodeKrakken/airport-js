@@ -12,24 +12,24 @@ describe('Feature Test:', function(){
   describe('under clement conditions', function(){
     beforeEach(function(){
       spyOn(Math, 'random').and.returnValue(0);
+      plane.land(airport);
     });
 
     it('planes can be instructed to land at an airport', function(){
-      plane.land(airport);
       expect(airport.planes()).toContain(plane);
     });
-  
+
     it('planes can be instructed to take off', function(){
-      plane.land(airport)
       plane.takeOff();
       expect(airport.planes()).not.toContain(plane);
+    });
+
+    it('plane confirms departure', function(){
+      expect(plane.takeOff()).toEqual("Departure Successful.")
     });
   });
 
   describe('under stormy conditions', function(){
-    beforeEach(function(){
-
-    });
 
     it('blocks takeoff when weather is stormy', function(){
       spyOn(Math, 'random').and.returnValue(0);

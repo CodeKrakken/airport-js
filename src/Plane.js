@@ -9,4 +9,5 @@ Plane.prototype.land = function(airport) {
 
 Plane.prototype.takeOff = function() {
   this._location.clearForTakeOff(this);
+  return "Departure Successful.";
 }
