@@ -30,9 +30,9 @@ describe('Feature Test:', function(){
       expect(plane.takeOff()).toEqual("Departure Successful.")
     });
 
-    xit('planes cannot land if airport is full', function(){
+    it('planes cannot land if airport is full', function(){
       airport.alterCapacity(1);
-      plane.land(airport);
+      console.log(airport.planes());
       expect(function(){planeTwo.land(airport);}).toThrowError('Cannot land - airport is full');
     });
   });

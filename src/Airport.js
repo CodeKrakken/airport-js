@@ -12,7 +12,7 @@ Airport.prototype.clearForLanding = function(plane){
   if(this._weather.isStormy()) {
     throw new Error('Cannot land during storm');
   }
-  if(this._hangar.length >= 100) {
+  if(this._hangar.length >= this.capacity) {
     throw new Error('Cannot land - airport is full');
   }
   this._hangar.push(plane);
