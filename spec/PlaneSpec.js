@@ -3,10 +3,12 @@
 describe('Plane', function(){
   var plane;
   var airport;
+  var crab;
 
   beforeEach(function() { 
     plane = new Plane();
-    airport = jasmine.createSpyObj('airport',['clearForLanding','clearForTakeOff']);
+    airport = jasmine.createSpyObj('airport',['clearForLanding','clearForTakeOff','isAirport']);
+    crab = jasmine.createSpyObj('crab',['isNotAirport']);
     plane.land(airport);
   });
 
@@ -21,5 +23,9 @@ describe('Plane', function(){
 
   it('confirms departure', function(){
     expect(plane.takeOff()).toEqual("Departure Successful.");
+  });
+
+  it('will only land at an airport', function(){
+    expect(function(){plane.land(crab);}).toThrowError("Cannot land - invalid airport");
   });
 });

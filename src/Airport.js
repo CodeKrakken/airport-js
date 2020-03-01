@@ -33,3 +33,7 @@ Airport.prototype.alterCapacity = function(newCapacity){
   if (newCapacity < this._hangar.length) throw new Error('Cannot alter capacity - current plane count exceeds requested capacity')
   this.capacity = newCapacity;
 };
+
+Airport.prototype.isAirport = function(){
+  return false
+};

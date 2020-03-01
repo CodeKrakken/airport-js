@@ -3,6 +3,7 @@
 function Plane(){};
 
 Plane.prototype.land = function(airport) {
+  if (airport.isNotAirport) throw new Error('Cannot land - invalid airport');
   airport.clearForLanding(this);
   this._location = airport;
 };
