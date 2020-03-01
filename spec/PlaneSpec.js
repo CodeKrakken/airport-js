@@ -32,4 +32,9 @@ describe('Plane', function(){
   it('will not land when already on ground', function(){
     expect(function(){plane.land(airport);}).toThrowError("Cannot land - already grounded");
   });
+
+  it('will not tke off when already in flight', function(){
+    plane.takeOff();
+    expect(function(){plane.takeOff();}).toThrowError("Cannot take off - already in flight");
+  });
 });
