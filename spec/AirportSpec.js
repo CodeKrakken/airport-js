@@ -31,5 +31,5 @@ describe('Airport', function(){
     airport.clearForLanding(planeTwo);
     airport.clearForTakeOff(plane);
     expect(airport.planes()).toContain(planeTwo);
-  })
+  });
 });

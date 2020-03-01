@@ -9,8 +9,5 @@ Airport.prototype.clearForLanding = function(plane){
   this._hangar.push(plane);
 };
 Airport.prototype.clearForTakeOff = function(plane){
-  const index = this._hangar.indexOf(plane);
-  if (index > -1) {
-    this._hangar.splice(index, 1);
-  }
+  this._hangar.splice((this._hangar.indexOf(plane)), 1);
 }
