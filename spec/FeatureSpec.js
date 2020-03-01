@@ -27,6 +27,10 @@ describe('Feature Test:', function(){
     it('plane confirms departure', function(){
       expect(plane.takeOff()).toEqual("Departure Successful.")
     });
+
+    xit('planes cannot land if airport is full', function(){
+      expect(function(){plane.land(airport);}).toThrowError('Cannot land - airport is full');
+    });
   });
 
   describe('under stormy conditions', function(){

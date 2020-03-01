@@ -4,19 +4,26 @@ describe('Airport', function(){
   var airport;
   var plane;
   var planeTwo;
-  var weather;
 
   beforeEach(function() { 
     airport = new Airport();
     plane = jasmine.createSpy('plane',['land']);
     planeTwo = jasmine.createSpy('plane',['land']);
-    weather = jasmine.createSpy('weather',['isStormy']);
   });
 
   describe('in clement conditions', function(){
     beforeEach(function() {
       spyOn(Math, 'random').and.returnValue(0);
     })
+
+    it('has a default capacity of 100', function(){
+      expect(airport.capacity).toEqual(100);
+    });
+
+    it('can have its capacity changed', function(){
+      airport.decreaseCapacity(1);
+      expect(airport.capacity).toEqual(1);
+    });
 
     it('has no planes by default', function(){
       expect(airport.planes()).toEqual([]);
