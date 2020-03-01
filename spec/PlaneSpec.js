@@ -28,4 +28,8 @@ describe('Plane', function(){
   it('will only land at an airport', function(){
     expect(function(){plane.land(crab);}).toThrowError("Cannot land - invalid airport");
   });
+
+  it('will not land when already on ground', function(){
+    expect(function(){plane.land(airport);}).toThrowError("Cannot land - already grounded");
+  });
 });
