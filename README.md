@@ -1,1 +1,3 @@
-# thermostat-2
+# Airport Challenge
+
+#### JavaScript version
