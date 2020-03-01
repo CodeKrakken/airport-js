@@ -2,10 +2,12 @@
 
 describe('Feature Test:', function(){
   var plane;
+  var planeTwo;
   var airport;
 
   beforeEach(function(){
     plane = new Plane();
+    planeTwo = new Plane(); 
     airport = new Airport();
   });
 
@@ -29,7 +31,9 @@ describe('Feature Test:', function(){
     });
 
     xit('planes cannot land if airport is full', function(){
-      expect(function(){plane.land(airport);}).toThrowError('Cannot land - airport is full');
+      airport.alterCapacity(1);
+      plane.land(airport);
+      expect(function(){planeTwo.land(airport);}).toThrowError('Cannot land - airport is full');
     });
   });
 

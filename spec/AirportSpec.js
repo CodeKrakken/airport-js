@@ -21,9 +21,15 @@ describe('Airport', function(){
     });
 
     it('can have its capacity changed', function(){
-      airport.decreaseCapacity(1);
+      airport.alterCapacity(1);
       expect(airport.capacity).toEqual(1);
     });
+
+    it('will not make its capacity smaller than number of planes in hangar', function(){
+      airport.clearForLanding(plane);
+      airport.clearForLanding(planeTwo);
+      expect(function(){ airport.alterCapacity(1); }).toThrowError('Cannot alter capacity - current plane count exceeds requested capacity');
+    })
 
     it('has no planes by default', function(){
       expect(airport.planes()).toEqual([]);
