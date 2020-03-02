@@ -1,12 +1,17 @@
 'use strict';
 
-function Plane(){};
+function Plane(){
+  var _location;
+};
 
 Plane.prototype.land = function(airport) {
-  if (airport.isNotAirport) throw new Error('Cannot land - invalid airport');
   if (this._location !== "in flight") throw new Error('Cannot land - already grounded');
-  airport.clearForLanding(this);
-  this._location = airport;
+  if (airport.isAirport) {
+    airport.clearForLanding(this);
+    this._location = airport;
+  } else {
+    throw new Error('Cannot land - invalid airport');
+  };  
 };
 
 Plane.prototype.takeOff = function(airport) {

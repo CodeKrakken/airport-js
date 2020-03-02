@@ -5,6 +5,7 @@ describe('Feature Test:', function(){
   var planeTwo;
   var airport;
   var airportTwo;
+  var crab;
 
   beforeEach(function(){
     plane = new Plane();
@@ -13,6 +14,7 @@ describe('Feature Test:', function(){
     planeTwo._location = "in flight"; 
     airport = new Airport();
     airportTwo = new Airport();
+    crab = jasmine.createSpyObj('crab', ['walkSideways']);
   });
 
   describe('under clement conditions', function(){
@@ -23,6 +25,11 @@ describe('Feature Test:', function(){
 
     it('planes can be instructed to land at an airport', function(){
       expect(airport.planes()).toContain(plane);
+    });
+
+    it('planes will only land at an airport', function(){
+      plane.takeOff(airport);
+      expect(function(){plane.land(crab);}).toThrowError("Cannot land - invalid airport");
     });
 
     it('planes can be instructed to take off', function(){
@@ -48,7 +55,7 @@ describe('Feature Test:', function(){
 
   describe('under stormy conditions', function(){
 
-    it('blocks takeoff when weather is stormy', function(){
+    it('airport blocks takeoff when weather is stormy', function(){
       spyOn(Math, 'random').and.returnValue(0);
       plane.land(airport)
       spyOn(airport._weather, 'isStormy').and.returnValue(true);
@@ -56,7 +63,7 @@ describe('Feature Test:', function(){
       expect(airport.planes()).toContain(plane);
     });
   
-    it('blocks landing when weather is stormy', function(){
+    it('airport blocks landing when weather is stormy', function(){
       spyOn(Math, 'random').and.returnValue(1);
       expect(function(){plane.land(airport);}).toThrowError('Cannot land during storm');
     });
