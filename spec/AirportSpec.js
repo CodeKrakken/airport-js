@@ -61,6 +61,7 @@ describe('Airport', function(){
 
     it('does not clear planes for take off', function(){
       expect(function(){ airport.clearForTakeOff(plane); }).toThrowError('Cannot take off during storm');
+      expect(airport.planes()).not.toContain(plane);
     });
 
     it('does not clear planes for landing', function(){
