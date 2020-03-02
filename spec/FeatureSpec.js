@@ -36,6 +36,7 @@ describe('Feature Test:', function(){
       airport.alterCapacity(1);
       console.log(airport.planes());
       expect(function(){planeTwo.land(airport);}).toThrowError('Cannot land - airport is full');
+      expect(airport.planes()).not.toContain(planeTwo);
     });
 
     it('planes cannot take off if not at specified airport', function(){
