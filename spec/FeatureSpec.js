@@ -8,7 +8,9 @@ describe('Feature Test:', function(){
 
   beforeEach(function(){
     plane = new Plane();
-    planeTwo = new Plane(); 
+    planeTwo = new Plane();
+    plane._location = "in flight";
+    planeTwo._location = "in flight"; 
     airport = new Airport();
     airportTwo = new Airport();
   });

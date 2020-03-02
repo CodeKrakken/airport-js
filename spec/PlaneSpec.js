@@ -9,6 +9,7 @@ describe('Plane', function(){
     plane = new Plane();
     airport = jasmine.createSpyObj('airport',['clearForLanding','clearForTakeOff','isAirport']);
     crab = jasmine.createSpyObj('crab',['isNotAirport']);
+    plane._location = "in flight";
     plane.land(airport);
   });
 
