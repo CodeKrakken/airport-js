@@ -55,6 +55,6 @@ Setup and usage
 
 * You will need Node.js 13.9.0. To get it, visit `https://nodejs.org/en/`
 
-* To install - `git clone https://github.com/CodeKrakken/airport-js`
+* To install the project - `git clone https://github.com/CodeKrakken/airport-js`
 
 * Open `./airport-js/SpecRunner.html` in your browser to run the unit and feature tests
