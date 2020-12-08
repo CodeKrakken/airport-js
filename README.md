@@ -1,8 +1,5 @@
 # Airport Challenge
 
-#### JavaScript version
-
-
 This application provides a basic air traffic control system. It was programmed in JavaScript using TDD.
 
 User stories
