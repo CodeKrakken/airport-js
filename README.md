@@ -1,6 +1,10 @@
 # Airport Challenge
 
-This application provides a basic air traffic control system. It was programmed in JavaScript using TDD. See my original Ruby version [here](https://github.com/CodeKrakken/airport-ruby)
+This application provides a basic air traffic control system. It was programmed in JavaScript using TDD. 
+
+[Originally](https://github.com/CodeKrakken/airport_challenge) tackled at Makers in Ruby, with a selection of partners.
+
+[Revisited](https://github.com/CodeKrakken/christmas-airport) solo at Christmas 2019 to consolidate Ruby knowledge.
 
 User stories
 ------
